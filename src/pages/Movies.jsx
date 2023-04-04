@@ -55,7 +55,11 @@ const Movies = () => {
             <MovieItem key={movie.id}>
               <MovieLink to={`/movies/${movie.id}`} state={{ from: location }}>
                 <MoviePoster
-                  src={`${imgBaseUrl}${movie.poster_path}`}
+                  src={
+                    movie.poster_path !== null
+                      ? `${imgBaseUrl}${movie.poster_path}`
+                      : `https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg`
+                  }
                   alt={movie.title}
                 />
                 <MovieTitleBlock>

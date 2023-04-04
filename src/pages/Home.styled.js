@@ -9,7 +9,9 @@ export const MovieItem = styled.li``;
 
 export const MovieLink = styled(Link)``;
 
-export const MoviePoster = styled.img``;
+export const MoviePoster = styled.img`
+  max-width: 350px;
+`;
 
 export const MovieTitleBlock = styled.div``;
 
