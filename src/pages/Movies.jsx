@@ -8,7 +8,7 @@ const MoviesSearch = lazy(() => import('../components/MoviesSearch/MoviesSearch'
 const Movies = () => {
   return (
     <Suspense fallback={<Loader />}>
-      <MoviesSearch />;
+      <MoviesSearch />
     </Suspense>
   );
 };
