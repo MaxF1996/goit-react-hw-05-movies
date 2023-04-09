@@ -1,24 +1,24 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import { NavList } from './Layout.styled';
 
 const Layout = () => {
   return (
     <>
       <header>
         <nav>
-          <NavList>
+          <ul>
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
             <li>
               <NavLink to="/movies">Movies</NavLink>
             </li>
-          </NavList>
+          </ul>
         </nav>
       </header>
       <main>
         <Outlet />
       </main>
+      <footer></footer>
     </>
   );
 };
