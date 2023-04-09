@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams, useLocation } from 'react-router-dom';
 import useFetchMovies from '../../hooks/useFetchMovies';
+import Loader from 'components/Loader/Loader';
 
 import {
   MoviesSearchTitle,
@@ -14,7 +15,6 @@ import {
   MoviesSearchName,
   MoviesSearchFailed,
 } from './MoviesSearch.styled';
-import Loader from 'components/Loader/Loader';
 
 const MoviesSearch = () => {
   const [query, setQuery] = useState('');

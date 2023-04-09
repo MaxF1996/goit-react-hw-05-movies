@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import useFetchMovies from 'hooks/useFetchMovies';
 import Loader from 'components/Loader/Loader';
+
 import {
   MovieCastFailed,
   MovieCastList,
