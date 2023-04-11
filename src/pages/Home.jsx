@@ -8,7 +8,7 @@ const MoviesTrending = lazy(() => import('../components/MoviesTrending/MoviesTre
 const Home = () => {
   return (
     <Suspense fallback={<Loader />}>
-      <MoviesTrending />;
+      <MoviesTrending />
     </Suspense>
   );
 };

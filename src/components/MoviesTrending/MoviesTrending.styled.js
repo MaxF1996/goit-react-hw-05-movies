@@ -25,12 +25,33 @@ export const MoviesTrendingList = styled.ul`
   }
 `;
 
-export const MoviesTrendingListItem = styled.li``;
+export const MoviesTrendingListItem = styled.li`
+  color: black;
+  border-radius: 10px;
+  :hover {
+    background-color: blue;
+    color: white;
+  }
+`;
 
-export const MovieTrendLink = styled(Link)``;
+export const MovieTrendLink = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+`;
 
 export const MovieTrendPoster = styled.img``;
 
 export const MovieTrendTitle = styled.h3`
   text-align: center;
+  color: inherit;
+  padding: 0 5px;
+`;
+
+export const MovieTrendDate = styled.h4`
+  text-align: center;
+  color: inherit;
 `;

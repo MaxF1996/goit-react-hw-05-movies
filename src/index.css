@@ -18,6 +18,27 @@ ul {
   padding: 0;
 }
 
+header {
+  background-color: blue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+nav {
+}
+
+nav ul {
+  display: flex;
+}
+
+nav li {
+}
+
+main {
+  padding: 80px 0 50px;
+}
+
 img {
   display: block;
   width: 100%;

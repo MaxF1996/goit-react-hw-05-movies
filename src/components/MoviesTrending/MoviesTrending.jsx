@@ -9,6 +9,7 @@ import {
   MovieTrendLink,
   MovieTrendPoster,
   MovieTrendTitle,
+  MovieTrendDate,
 } from './MoviesTrending.styled';
 
 const MoviesTrending = () => {
@@ -16,6 +17,14 @@ const MoviesTrending = () => {
   const location = useLocation();
   // console.log(loading);
   // console.log(data);
+
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
 
   return (
     <>
@@ -26,7 +35,8 @@ const MoviesTrending = () => {
             <MoviesTrendingListItem key={`${movie.id}`}>
               <MovieTrendLink to={`/movies/${movie.id}`} state={{ from: location }}>
                 <MovieTrendPoster src={`${baseImgUrl}${movie.poster_path}`} alt={movie.title} />
-                <MovieTrendTitle>{movie.title}</MovieTrendTitle>
+                <MovieTrendTitle>«{movie.title}»</MovieTrendTitle>
+                <MovieTrendDate>{formatDate(movie.release_date)}</MovieTrendDate>
               </MovieTrendLink>
             </MoviesTrendingListItem>
           ))}

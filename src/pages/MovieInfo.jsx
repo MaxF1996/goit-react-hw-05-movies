@@ -8,7 +8,7 @@ const MovieDetails = lazy(() => import('../components/MovieDetails/MovieDetails'
 const MovieInfo = () => {
   return (
     <Suspense fallback={<Loader />}>
-      <MovieDetails />;
+      <MovieDetails />
     </Suspense>
   );
 };

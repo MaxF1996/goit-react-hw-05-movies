@@ -14,6 +14,7 @@ import {
   MoviesSearchPoster,
   MoviesSearchName,
   MoviesSearchFailed,
+  MoviesSearchDate,
 } from './MoviesSearch.styled';
 
 const MoviesSearch = () => {
@@ -38,11 +39,24 @@ const MoviesSearch = () => {
     setQuery(event.target.value);
   };
 
+  function formatDate(dateString) {
+    const date = new Date(dateString);
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+  }
+
   return (
     <>
       <MoviesSearchTitle>You can search movie here.</MoviesSearchTitle>
       <MoviesSearchForm onSubmit={handleSubmit}>
-        <MoviesSearchInput type="text" value={query} onChange={onChange} />
+        <MoviesSearchInput
+          type="text"
+          value={query}
+          onChange={onChange}
+          placeholder="Write your query here!"
+        />
         <MoviesSearchBtn type="submit">Search</MoviesSearchBtn>
       </MoviesSearchForm>
       {loading && <Loader />}
@@ -54,8 +68,16 @@ const MoviesSearch = () => {
           {data.results.map(movie => (
             <MoviesSearchListItem key={`${movie.id}`}>
               <MoviesSearchLink to={`${movie.id}`} state={{ from: location }}>
-                <MoviesSearchPoster src={`${baseImgUrl}${movie.poster_path}`} alt={movie.title} />
+                <MoviesSearchPoster
+                  src={
+                    movie.poster_path
+                      ? `${baseImgUrl}${movie.poster_path}`
+                      : `https://www.themoviedb.org/assets/2/v4/glyphicons/basic/glyphicons-basic-38-picture-grey-c2ebdbb057f2a7614185931650f8cee23fa137b93812ccb132b9df511df1cfac.svg`
+                  }
+                  alt={movie.title}
+                />
                 <MoviesSearchName>{movie.title}</MoviesSearchName>
+                <MoviesSearchDate>{formatDate(movie.release_date)}</MoviesSearchDate>
               </MoviesSearchLink>
             </MoviesSearchListItem>
           ))}

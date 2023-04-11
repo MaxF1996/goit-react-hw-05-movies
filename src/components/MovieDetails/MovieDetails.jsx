@@ -25,7 +25,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      <MovieBackBtn to={backLinkHref}>Back to Search</MovieBackBtn>
+      <MovieBackBtn to={backLinkHref}>&lt;&lt; Back to Search</MovieBackBtn>
       {loading && <Loader />}
       {!loading && data && data.id && (
         <>
